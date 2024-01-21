@@ -36,12 +36,14 @@ export function Navbar() {
 
     return (
         <div className="Navbar">
-            <img id="smalllogo" src={require('./Group_21.jpg')} />
             <h1 className="header" id="title">MeerKat</h1>
+            <img id="smalllogo" src={require('./Group_21.jpg')} />
             {isUserLoggedIn && (
-                <div> <p>{emailAddress}</p>
-                <button id="signout" onClick={handleLogout}>Sign Out</button>
-                <img id="profilepic" src={profilePicture} />
+                <div>
+                    <img className="personal" id="profilepic" src={profilePicture} />
+                    <p className="personal" id="email" >{emailAddress}</p>
+                    <button id="signout" onClick={handleLogout}>Sign Out</button>
+
                 </div>
             )}
         </div>

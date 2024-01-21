@@ -317,3 +317,31 @@ return <div className="event-card" key={i}>
 
 
 }
+
+.personal { 
+    display: flex; 
+    justify-content: 
+    flex-start; 
+    position: absolute; 
+    left: 95px;
+     /* padding: 7px 12px; */ 
+} 
+
+#email { 
+    font-weight: 500; 
+    display: inline-block; 
+    margin-top: 1.8em; 
+    margin-right: 0em;
+} 
+
+#profilepic { 
+    position: absolute; 
+    left: 10px; 
+    display: inline; 
+    border-radius: 40px; 
+    width: 2.5rem;
+    height: 2.5rem; 
+    margin-top: 1.2em; 
+    margin-right: 0em; 
+    margin-left: 1.8em; 
+}  
