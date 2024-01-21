@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", Helvetica, sans-serif;
+}
+
+.app {
+    background-color: #F8F8F8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+return <div className="event-card" key={i}>
+                    <h3 id="event-title">{ev.title}</h3>
+                    <span id="event-category">{ev.eventCategory}</span>
+                    <h5 id="event-location">{ev.location}</h5>
+                    <button type="button" id="event-view-on-map-btn" onClick={() => {
+                        window.open(ev.locationLink, '_blank');
+                    }}>VIEW ON MAP</button>
+                    <button type="button" id="event-join-btn">Join {ev.creator}</button>
+                    <h4 id="event-time">{ev.time}</h4>
+                </div>
+*/
+
+.events {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    width: 20rem;
+    padding: 50px;
+    margin: 25px;
+    background: #CF4343;
+    border-radius: 80px;
+    transition: 0.5s;
+}
+
+.event-card:hover {
+    transform: scale(1.03);
+}
+
+.event-title {
+    margin-top: 0;
+    font-weight: 900;
+    color: #F8F8F8;
+}
+
+.event-category {
+    color: #F8F8F8;
+    background-color: #CF4343;
+    border: 2px solid #F8F8F8;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.event-category:hover {
+    background-color: #d57878;
+}
+
+.event-location {
+    color: #F8F8F8;
+    font-weight: 500;
+}
+
+.event-view-on-map-btn {
+
+}
+
+.event-join-btn {
+
+}
+
+.event-time {
+    color: #F8F8F8;
+    font-weight: 400;
+}
+
+.event-card button {
+    background-color: #F8F8F8;
+    color: #CF4343;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    transition: 0.5s;
+}
+
+.event-card button:hover {
+    transform: translateY(-3px);
+}
+
+.event-card .random-offset {
+    
+}
