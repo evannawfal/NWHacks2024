@@ -30,13 +30,16 @@ return <div className="event-card" key={i}>
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 150px;
 }
 
 .event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 20rem;
     padding: 50px;
-    margin: 25px;
-    background: #CF4343;
+    margin: 35px;
     border-radius: 80px;
     transition: 0.5s;
 }
@@ -53,12 +56,12 @@ return <div className="event-card" key={i}>
 
 .event-category {
     color: #F8F8F8;
-    background-color: #CF4343;
+    background: #CF4343;
     border: 2px solid #F8F8F8;
     font-weight: 700;
     padding: 5px 10px;
     border-radius: 6px;
-    transition: 0.5s;
+    transition: 0.25s;
 }
 
 .event-category:hover {
@@ -83,19 +86,129 @@ return <div className="event-card" key={i}>
     font-weight: 400;
 }
 
-.event-card button {
-    background-color: #F8F8F8;
-    color: #CF4343;
+.event-view-on-map-btn, .event-join-btn {
+    background: #F8F8F8;
     border: none;
     border-radius: 6px;
     padding: 5px 10px;
-    transition: 0.5s;
+    transition: 0.25s;
+}
+
+.attending-btn {
+    color: #F8F8F8;
+    border: 2px solid #F8F8F8;
+    border-radius: 6px;
+    padding: 5px 10px;
+    transition: 0.25s;
 }
 
 .event-card button:hover {
     transform: translateY(-3px);
 }
 
-.event-card .random-offset {
-    
+.add-event {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 50px 40px;
+    border-radius: 75px;
+    background: black;
+    transition: 0.25s;
+}
+
+.add-event:hover {
+    transform: scale(1.02);
+}
+
+.add-event-btn {
+    border: none;
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+    background: none;
+    padding: 50px 40px;
+    margin: -50px -40px;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+}
+
+.form-title {
+    color: #F8F8F8;
+}
+
+.event-form-title {
+    color: #F8F8F8;
+    margin-top: 0px;
+}
+
+.event-form label{
+    color: #F8F8F8;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 3px;
+}
+
+.event-form input[type="text"] {
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.event-form input[type="text"]:focus {
+    border: none!important;
+}
+
+.event-form-type {
+    display: flex;
+    flex-direction: row;
+}
+
+.event-form select {
+    background: none;
+    border: none;
+}
+
+.event-form select:active {
+    border: none;
+}
+
+.event-form select option {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 4px 0;
+    background: #fff;
+}
+
+.event-form-time-range {
+    display: flex;
+    justify-content: space-between;
+    width: 21rem
+}
+
+.event-form-submit, .event-form-close {
+    background: #F8F8F8;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 20px;
+    transition: 0.25s;
+    margin-top: 25px;
+}
+
+.event-form-submit:hover, .event-form-close:hover {
+    transform: scale(1.05);
+}
+
+.event-form-buttons {
+    display: flex;
+    width: 24rem;
+    justify-content: space-between;
+    margin-top: 20px
 }
