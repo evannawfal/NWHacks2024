@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import "./styles.css"
+import { emailAddress, profilePicture } from "./firebase.js";
 
 export function Navbar() {
 
@@ -38,7 +39,10 @@ export function Navbar() {
             <img id="smalllogo" src={require('./Group_21.jpg')} />
             <h1 className="header" id="title">MeerKat</h1>
             {isUserLoggedIn && (
+                <div> <p>{emailAddress}</p>
                 <button id="signout" onClick={handleLogout}>Sign Out</button>
+                <img id="profilepic" src={profilePicture} />
+                </div>
             )}
         </div>
     );

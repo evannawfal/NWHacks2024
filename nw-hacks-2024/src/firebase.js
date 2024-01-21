@@ -17,10 +17,15 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getDatabase();
 
+let emailAddress;
+let profilePicture;
+
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
+    emailAddress = user.email;
+    profilePicture = user.photoURL;
 
     // Assuming user.uid is the unique identifier for the user
     set(ref(db, 'users/' + user.uid), {
@@ -32,4 +37,4 @@ const signInWithGoogle = async () => {
   }
 };
 
-export { signInWithGoogle, auth, app };
+export { signInWithGoogle, auth, app, emailAddress, profilePicture};
