@@ -22,7 +22,6 @@ export function Login() {
         <div className="Login">
             <h1>LOGIN</h1>
             <button onClick={signInWithGoogle}>Sign in with Google</button>
-        
         </div>
     )
 }
