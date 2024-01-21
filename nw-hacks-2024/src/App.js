@@ -4,7 +4,9 @@ import { Events } from './Events.js';
 import { Navbar } from "./Navbar.js";
 
 
+
 export function App() {
+
   return (
     <div className="App">
       <Router>

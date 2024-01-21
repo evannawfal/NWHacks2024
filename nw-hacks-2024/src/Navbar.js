@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
+import "./styles.css"
 
 export function Navbar() {
 
@@ -34,9 +35,10 @@ export function Navbar() {
 
     return (
         <div className="Navbar">
-            <h1>NAVBAR</h1>
+            <img id="smalllogo" src={require('./Group_21.jpg')} />
+            <h1 className="header" id="title">MeerKat</h1>
             {isUserLoggedIn && (
-                <button onClick={handleLogout}>Sign Out</button>
+                <button id="signout" onClick={handleLogout}>Sign Out</button>
             )}
         </div>
     );

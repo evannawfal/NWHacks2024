@@ -73,20 +73,19 @@ return <div className="event-card" key={i}>
     font-weight: 500;
 }
 
-.event-view-on-map-btn {
-
+.event-view-on-map-btn:hover {
+    cursor: pointer;
 }
 
-.event-join-btn {
-
-}
+.event-join-btn {}
 
 .event-time {
     color: #F8F8F8;
     font-weight: 400;
 }
 
-.event-view-on-map-btn, .event-join-btn {
+.event-view-on-map-btn,
+.event-join-btn {
     background: #F8F8F8;
     border: none;
     border-radius: 6px;
@@ -146,7 +145,7 @@ return <div className="event-card" key={i}>
     margin-top: 0px;
 }
 
-.event-form label{
+.event-form label {
     color: #F8F8F8;
     display: block;
     font-weight: 300;
@@ -160,7 +159,7 @@ return <div className="event-card" key={i}>
 }
 
 .event-form input[type="text"]:focus {
-    border: none!important;
+    border: none !important;
 }
 
 .event-form-type {
@@ -191,7 +190,8 @@ return <div className="event-card" key={i}>
     width: 21rem
 }
 
-.event-form-submit, .event-form-close {
+.event-form-submit,
+.event-form-close {
     background: #F8F8F8;
     border: none;
     border-radius: 50px;
@@ -202,7 +202,8 @@ return <div className="event-card" key={i}>
     margin-top: 25px;
 }
 
-.event-form-submit:hover, .event-form-close:hover {
+.event-form-submit:hover,
+.event-form-close:hover {
     transform: scale(1.05);
 }
 
@@ -211,4 +212,79 @@ return <div className="event-card" key={i}>
     width: 24rem;
     justify-content: space-between;
     margin-top: 20px
+}
+
+.Navbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#title {
+    display: inline-block;
+    color: black;
+}
+
+#signout {
+    background-color: black;
+    color: white;
+    border-width: 0px;
+    border-radius: 10px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    padding: 7px 12px;
+}
+
+#signout:hover {
+    background-color: #404040;
+    cursor: pointer;
+}
+
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+
+    /* background-image: url('./Group_21.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center 10%;
+    background-size: 10rem; */
+}
+
+#biglogo {
+    width: 11rem;
+    height: 11rem;
+}
+
+#smalllogo {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 1.2em 0.2em;
+}
+
+#googlebtn {
+    transition: background-color .3s, box-shadow .3s;
+    margin-top: 2em;
+    padding: 12px 16px 12px 42px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1.5px 1.5px rgba(0, 0, 0, .25);
+    cursor: pointer;
+
+    color: #757575;
+    font-size: 1.5em;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+
+
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { signInWithGoogle } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase.js";
+import "./styles.css"
 
 
 export function Login() {
@@ -22,8 +23,8 @@ export function Login() {
 
     return (
         <div className="Login">
-            <h1>LOGIN</h1>
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
+            <img id="biglogo" src={require('./Group_21.jpg')} />
+            <button id="googlebtn" onClick={signInWithGoogle}>Sign in with Google</button>
         </div>
     )
 }
