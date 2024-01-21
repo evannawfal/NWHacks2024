@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import "firebase/firestore";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC82G0eW8Sphq2Q6TuK0__uXvkJToXJ0OY",
@@ -16,19 +15,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const db = getFirestore(app);
+const db = getDatabase();
 
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
-    const emailAddress = result.user.email;
-    const profilePic = result.user.photoURL;
+    const user = result.user;
 
-    const usersCollection = collection(db, 'users');
-    const userEntity = { Email: emailAddress};
-    await addDoc(usersCollection, userEntity);
-
-   // console.log("Document written with ID: ", docRef.id);
+    // Assuming user.uid is the unique identifier for the user
+    set(ref(db, 'users/' + user.uid), {
+      email: user.email,
+      profilePic: user.photoURL
+    });
   } catch (error) {
     console.error("Error signing in or adding document: ", error);
   }
