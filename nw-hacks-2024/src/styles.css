@@ -101,6 +101,14 @@ return <div className="event-card" key={i}>
     transition: 0.25s;
 }
 
+.cancel-event-btn {
+    color: #F8F8F8;
+    border: 2px solid #F8F8F8;
+    border-radius: 6px;
+    padding: 5px 10px;
+    transition: 0.25s;
+}
+
 .event-card button:hover {
     transform: translateY(-3px);
 }
@@ -159,7 +167,7 @@ return <div className="event-card" key={i}>
 }
 
 .event-form input[type="text"]:focus {
-    border: none !important;
+    outline: none;
 }
 
 .event-form-type {
@@ -168,12 +176,14 @@ return <div className="event-card" key={i}>
 }
 
 .event-form select {
-    background: none;
+    background: #F8F8F8;
     border: none;
+    padding: 5px 5px;
+    border-radius: 7px;
 }
 
-.event-form select:active {
-    border: none;
+.event-form select:focus {
+    outline: none;
 }
 
 .event-form select option {
@@ -181,7 +191,12 @@ return <div className="event-card" key={i}>
     padding: 5px;
     border-radius: 5px;
     margin: 4px 0;
-    background: #fff;
+    background: #F8F8F8;
+    transition: 0.5s;
+}
+
+.event-form select option:checked {
+    background-color: #C0DDFE;
 }
 
 .event-form-time-range {
@@ -202,9 +217,23 @@ return <div className="event-card" key={i}>
     margin-top: 25px;
 }
 
+.event-form-close {
+    background: none;
+    border: 2px solid #F8F8F8;
+    color: #F8F8F8;
+}
+
 .event-form-submit:hover,
 .event-form-close:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
+}
+
+.event-form-submit:hover {
+    background: #bababa;
+}
+
+.event-form-close:hover {
+    background: #2d2d2d;
 }
 
 .event-form-buttons {

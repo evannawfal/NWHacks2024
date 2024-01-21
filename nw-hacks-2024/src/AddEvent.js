@@ -1,7 +1,44 @@
 import React, { useState, useEffect } from "react"
 
-export function AddEvent() {
+export function AddEvent({ onCreateEvent }) {
     const [formOpen, setFormOpen] = useState(false)
+    const [formData, setFormData] = useState({
+        title: "",
+        eventType: "",
+        location: "",
+        startTime: "",
+        endTime: ""
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleMultiSelectChange = (e) => {
+        const selectedOption = e.target.value;
+        setFormData({
+            ...formData,
+            eventType: selectedOption
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onCreateEvent(formData);
+        setFormOpen(false)
+        setFormData({
+            title: "",
+            eventType: "",
+            location: "",
+            startTime: "",
+            endTime: ""
+        });
+        console.log('Form data submitted:', formData);
+    };
 
     return (
         <div className="add-event">
@@ -13,7 +50,7 @@ export function AddEvent() {
                 }}>CREATE EVENT
             </button>}
             {formOpen && <div className="create-event">
-                <form className="event-form">
+                <form className="event-form" onSubmit={handleSubmit}>
                     <h2 className="event-form-title">Create Event</h2>
                     <label>
                         Title
@@ -21,6 +58,8 @@ export function AddEvent() {
                     <input
                         type="text"
                         name="title"
+                        value={formData.title}
+                        onChange={handleInputChange}
                         required
                     />
                     <br />
@@ -29,11 +68,12 @@ export function AddEvent() {
                         Event Type
                     </label>
                     <select
-                        className="event-form-type"
                         name="eventType"
-                        multiple
+                        value={formData.eventType}
+                        onChange={handleMultiSelectChange}
                         required
                     >
+                        <option value="" disabled>Select an event type</option>
                         <option value="Fitness">Fitness</option>
                         <option value="Studying">Studying</option>
                         <option value="Shopping">Shopping</option>
@@ -46,6 +86,8 @@ export function AddEvent() {
                     <input
                         type="text"
                         name="location"
+                        value={formData.location}
+                        onChange={handleInputChange}
                         required
                     />
                     <br />
@@ -58,12 +100,16 @@ export function AddEvent() {
                             type="text"
                             name="startTime"
                             placeholder="Start time"
+                            value={formData.startTime}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
                             name="endTime"
                             placeholder="End time"
+                            value={formData.endTime}
+                            onChange={handleInputChange}
                             required
                         />
                     </div>

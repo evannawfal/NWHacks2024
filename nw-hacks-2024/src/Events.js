@@ -71,6 +71,21 @@ export function Events() {
         event1, event2, event3, event4, event5
     ]);
 
+    const handleCreateEvent = (formData) => {
+        const newEvent = {
+            title: formData.title,
+            location: formData.location,
+            locationLink: formData.locationLink,
+            added: false,
+            peopleGoing: [],
+            time: `${formData.startTime} - ${formData.endTime}`,
+            eventCategory: formData.eventType,
+            creator: "Me"
+        };
+
+        setEvents(prevEvents => [...prevEvents, newEvent]);
+    };
+
     return (
         <div className="events">
             {events.map((ev, i) => {
@@ -105,14 +120,12 @@ export function Events() {
                         window.open(ev.locationLink, '_blank');
                     }} style={categoryTextColor}>VIEW ON MAP</button>
                     <h4 className="event-time">{ev.time}</h4>
-                    {!ev.added && (
+                    {(!ev.added && ev.creator !== "Me") && (
                         <button
                             type="button"
                             className="event-join-btn"
                             style={categoryTextColor}
                             onClick={() => {
-                                // Assuming you are using React state
-                                // Update the state using setState
                                 setEvents(prevEvents => {
                                     return prevEvents.map(ev2 => {
                                         if (ev2.title === ev.title) {
@@ -127,14 +140,12 @@ export function Events() {
                         </button>
                     )}
 
-                    {ev.added && (
+                    {(ev.added && ev.creator !== "Me") && (
                         <button
                             type="button"
                             className="attending-btn"
                             style={categoryColor}
                             onClick={() => {
-                                // Assuming you are using React state
-                                // Update the state using setState
                                 setEvents(prevEvents => {
                                     return prevEvents.map(ev2 => {
                                         if (ev2.title === ev.title) {
@@ -148,9 +159,26 @@ export function Events() {
                             ATTENDING
                         </button>
                     )}
+
+                    {(ev.creator === "Me") && (
+                        <button
+                            type="button"
+                            className="cancel-event-btn"
+                            style={categoryColor}
+                            onClick={() => {
+                                setEvents(prevEvents => {
+                                    return prevEvents.filter(ev2 => {
+                                        return ev2.creator !== "Me"
+                                    });
+                                });
+                            }}
+                        >
+                            CANCEL EVENT
+                        </button>
+                    )}
                 </div>
             })}
-        <AddEvent />
+        <AddEvent onCreateEvent={handleCreateEvent}/>
         </div>
     )
 }
