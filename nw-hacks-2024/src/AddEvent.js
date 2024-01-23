@@ -50,8 +50,21 @@ export function AddEvent({ onCreateEvent }) {
                 }}>CREATE EVENT
             </button>}
             {formOpen && <div className="create-event">
-                <form className="event-form" onSubmit={handleSubmit}>
-                    <h2 className="event-form-title">Create Event</h2>
+                <form className="event-form" onSubmit={handleSubmit} autocomplete="off">
+                    <div className="event-form-header">
+                        <h2 className="event-form-title">Create Event</h2>
+                        <button 
+                            type="button" 
+                            className="event-form-x"
+                            onClick={() => {
+                                setFormOpen(!formOpen)
+                            }}>
+                            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                     <label>
                         Title
                     </label>
@@ -104,6 +117,7 @@ export function AddEvent({ onCreateEvent }) {
                             onChange={handleInputChange}
                             required
                         />
+                        <p>-</p>
                         <input
                             type="text"
                             name="endTime"
@@ -113,16 +127,7 @@ export function AddEvent({ onCreateEvent }) {
                             required
                         />
                     </div>
-                    <div className="event-form-buttons">
-                        <button type="submit" className="event-form-submit">CREATE</button>
-                        <button 
-                            type="button" 
-                            className="event-form-close"
-                            onClick={() => {
-                                setFormOpen(!formOpen)
-                            }}>CLOSE FORM
-                        </button>
-                    </div>
+                    <button type="submit" className="event-form-submit">CREATE</button>
                 </form>
             </div>}
         </div>

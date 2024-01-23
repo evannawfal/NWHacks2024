@@ -99,10 +99,6 @@ export function Events() {
                     //height: `${500 + Math.random() * 100}px`
                 };
 
-                const categoryColor = {
-                    background: `${colorTable[ev.eventCategory]}`
-                }
-
                 const categoryColorCard = {
                     background: `${colorTable[ev.eventCategory]}`,
                     boxShadow: `0px 20px 60px 5px ${colorTable[ev.eventCategory]}50`
@@ -114,7 +110,7 @@ export function Events() {
 
                 return <div className="event-card" style={{...eventCardStyle, ...categoryColorCard}} key={i}>
                     <h3 className="event-title">{ev.title}</h3>
-                    <span className="event-category" style={categoryColor}>{ev.eventCategory.toUpperCase()}</span>
+                    <span className="event-category">{ev.eventCategory.toUpperCase()}</span>
                     <h5 className="event-location">{`@ ${ev.location}`}</h5>
                     <button type="button" className="event-view-on-map-btn" onClick={() => {
                         window.open(ev.locationLink, '_blank');
@@ -144,7 +140,6 @@ export function Events() {
                         <button
                             type="button"
                             className="attending-btn"
-                            style={categoryColor}
                             onClick={() => {
                                 setEvents(prevEvents => {
                                     return prevEvents.map(ev2 => {
@@ -164,7 +159,6 @@ export function Events() {
                         <button
                             type="button"
                             className="cancel-event-btn"
-                            style={categoryColor}
                             onClick={() => {
                                 setEvents(prevEvents => {
                                     return prevEvents.filter(ev2 => {

@@ -36,8 +36,8 @@ export function Navbar() {
 
     return (
         <div className="Navbar">
-            <h1 className="header" id="title">MeerKat</h1>
             <img id="smalllogo" src={require('./Group_21.jpg')} />
+            <h1 className="header" id="title">MeerKat</h1>
             {isUserLoggedIn && (
                 <div>
                     <img className="personal" id="profilepic" src={profilePicture} />

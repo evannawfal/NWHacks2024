@@ -1,15 +1,20 @@
 * {
     box-sizing: border-box;
-    font-family: "Inter", Helvetica, sans-serif;
+    font-family: "DM Sans", "Inter", Helvetica, sans-serif;
 }
 
 .app {
     background-color: #F8F8F8;
+    display: flex;
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+button, select {
+    cursor: pointer;
 }
 
 /*
@@ -42,6 +47,11 @@ return <div className="event-card" key={i}>
     margin: 35px;
     border-radius: 80px;
     transition: 0.5s;
+    
+    /* align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    padding: 30px 80px; */
 }
 
 .event-card:hover {
@@ -56,7 +66,7 @@ return <div className="event-card" key={i}>
 
 .event-category {
     color: #F8F8F8;
-    background: #CF4343;
+    background: none;
     border: 2px solid #F8F8F8;
     font-weight: 700;
     padding: 5px 10px;
@@ -65,7 +75,7 @@ return <div className="event-card" key={i}>
 }
 
 .event-category:hover {
-    background-color: #d57878;
+    background-color: #ffffff30;
 }
 
 .event-location {
@@ -76,8 +86,6 @@ return <div className="event-card" key={i}>
 .event-view-on-map-btn:hover {
     cursor: pointer;
 }
-
-.event-join-btn {}
 
 .event-time {
     color: #F8F8F8;
@@ -95,6 +103,7 @@ return <div className="event-card" key={i}>
 
 .attending-btn {
     color: #F8F8F8;
+    background: none;
     border: 2px solid #F8F8F8;
     border-radius: 6px;
     padding: 5px 10px;
@@ -103,6 +112,7 @@ return <div className="event-card" key={i}>
 
 .cancel-event-btn {
     color: #F8F8F8;
+    background: none;
     border: 2px solid #F8F8F8;
     border-radius: 6px;
     padding: 5px 10px;
@@ -114,43 +124,84 @@ return <div className="event-card" key={i}>
 }
 
 .add-event {
+    display: flex;
+    position: fixed;
+    transition: 0.5s;
+}
+
+.create-event {
     position: fixed;
     bottom: 40px;
     right: 40px;
     padding: 50px 40px;
-    border-radius: 75px;
+    border-radius: 64px;
     background: black;
     transition: 0.25s;
-}
 
-.add-event:hover {
-    transform: scale(1.02);
+    backdrop-filter: blur(50px);
+    border: 2px solid #cdcdcd50;
+    background: #FFFFFF40;
+    align-self: center;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    width: 50vh;
 }
 
 .add-event-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 64px;
     border: none;
     font-size: larger;
     font-weight: 600;
-    color: white;
-    background: none;
+    color: #F8F8F8;
+    background: black;
     padding: 50px 40px;
-    margin: -50px -40px;
+
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: black;
 }
 
 .event-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: fit-content;
 }
 
-.form-title {
-    color: #F8F8F8;
+.event-form-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-form-x {
+    border: none;
+    background: none;
+    margin-top: -20px;
+    margin-right: 4px;
+}
+
+.close-icon {
+    width: 34px;
+    height: 34px;
 }
 
 .event-form-title {
     color: #F8F8F8;
-    margin-top: 0px;
+    margin-top: 0;
+
+    color: black;
 }
 
 .event-form label {
@@ -158,12 +209,19 @@ return <div className="event-card" key={i}>
     display: block;
     font-weight: 300;
     margin-bottom: 3px;
+
+    color: black;
 }
 
 .event-form input[type="text"] {
     border: none;
     border-radius: 7px;
     padding: 5px;
+
+    border: 1.2px solid black;
+    background: none;
+
+    width: 100%;
 }
 
 .event-form input[type="text"]:focus {
@@ -178,69 +236,58 @@ return <div className="event-card" key={i}>
 .event-form select {
     background: #F8F8F8;
     border: none;
-    padding: 5px 5px;
+    padding: 5px 1px;
     border-radius: 7px;
+
+    border: 1.2px solid black;
+    background: none;
+
+    width: 100%;
 }
 
 .event-form select:focus {
     outline: none;
 }
 
-.event-form select option {
-    display: inline-block;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 4px 0;
-    background: #F8F8F8;
-    transition: 0.5s;
-}
-
-.event-form select option:checked {
-    background-color: #C0DDFE;
-}
-
 .event-form-time-range {
     display: flex;
     justify-content: space-between;
-    width: 21rem
+    align-items: center;
+    width: 100%
 }
 
-.event-form-submit,
-.event-form-close {
-    background: #F8F8F8;
+.event-form-time-range input[type="text"] {
+    width: 47%;
+}
+
+.event-form-time-range p {
+    margin: 0;
+}
+
+.event-form-submit {
     border: none;
     border-radius: 50px;
     font-size: 20px;
     font-weight: 700;
     padding: 15px 20px;
     transition: 0.25s;
-    margin-top: 25px;
-}
 
-.event-form-close {
-    background: none;
-    border: 2px solid #F8F8F8;
     color: #F8F8F8;
-}
+    background: none;
+    border: 1.2px solid black;
+    color: black;
 
-.event-form-submit:hover,
-.event-form-close:hover {
-    /* transform: scale(1.05); */
+    width: 100%;
+    margin-top: 20px;
 }
 
 .event-form-submit:hover {
-    background: #bababa;
+    background: black;
+    color: #F8F8F8;
 }
 
 .event-form-close:hover {
     background: #2d2d2d;
-}
-
-.event-form-buttons {
-    display: flex;
-    width: 24rem;
-    justify-content: space-between;
-    margin-top: 20px
 }
 
 .Navbar {
@@ -297,25 +344,28 @@ return <div className="event-card" key={i}>
 }
 
 #googlebtn {
-    transition: background-color .3s, box-shadow .3s;
+    transition: .3s;
     margin-top: 2em;
-    padding: 12px 16px 12px 42px;
+    padding: 12px 20px 12px 50px;
     border: none;
-    border-radius: 3px;
+    border-radius: 50px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1.5px 1.5px rgba(0, 0, 0, .25);
     cursor: pointer;
 
     color: #757575;
     font-size: 1.5em;
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
 
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
     background-color: white;
     background-repeat: no-repeat;
-    background-position: 5% 50%;
+    background-position: 7% 50%;
+}
 
-
+#googlebtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 6.5px 6.5px rgba(0, 0, 0, .15);
 }
 
 .personal { 
