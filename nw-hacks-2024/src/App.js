@@ -16,6 +16,6 @@ export function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
-    </div>
+    </div> 
   );
 }
