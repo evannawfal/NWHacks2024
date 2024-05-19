@@ -41,7 +41,7 @@ export function AddEvent({ onCreateEvent }) {
     };
 
     return (
-        <div className="add-event">
+        <div className="add-event-container">
             {!formOpen && <button 
                 type="button" 
                 className="add-event-btn"
@@ -49,8 +49,8 @@ export function AddEvent({ onCreateEvent }) {
                     setFormOpen(!formOpen)
                 }}>CREATE EVENT
             </button>}
-            {formOpen && <div className="create-event">
-                <form className="event-form" onSubmit={handleSubmit} autocomplete="off">
+            {formOpen && <div className="add-event">
+                <form className="add-event-form" onSubmit={handleSubmit} autocomplete="off">
                     <div className="event-form-header">
                         <h2 className="event-form-title">Create Event</h2>
                         <button 

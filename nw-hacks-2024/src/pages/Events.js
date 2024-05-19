@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { AddEvent } from "./AddEvent.js"
+import { AddEvent } from "../components/AddEvent.js"
 import { useNavigate } from "react-router-dom"
-import "./styles.css"
+import "../styles/styles.css"
 
 let event1 = {
     title: "Leg Day",
@@ -93,10 +93,10 @@ export function Events() {
                     position: 'relative',
                     top: `${-10 + 40 * Math.random()}px`, // Random vertical offset
                     left: `${-10 + 40 * Math.random()}px`, // Random horizontal offset
-                    //width: `${20 + Math.random() * 6}rem`,
-                    //height: `${22 + Math.random() * 3}rem`
-                    //`${500 + Math.random() * 100}px`, // Random width between 150 and 250 pixels
-                    //height: `${500 + Math.random() * 100}px`
+                    // width: `${20 + Math.random() * 6}rem`,
+                    // height: `${22 + Math.random() * 3}rem`
+                    // `${500 + Math.random() * 100}px`, // Random width between 150 and 250 pixels
+                    // height: `${500 + Math.random() * 100}px`
                 };
 
                 const categoryColorCard = {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { signInWithGoogle } from "./firebase.js";
+import { signInWithGoogle } from "../firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase.js";
-import "./styles.css"
+import { auth } from "../firebase.js";
+import "../styles/styles.css"
 
 
 export function Login() {
@@ -15,7 +15,7 @@ export function Login() {
             if (user) {
                 navigate("/events");
             } else {
-                navigate("/login")
+                navigate("/")
             }
         });
 
@@ -23,7 +23,7 @@ export function Login() {
 
     return (
         <div className="Login">
-            <img id="biglogo" src={require('./Group_21.jpg')} />
+            <img id="biglogo" src={require('../images/logoblue.jpg')} />
             <button id="googlebtn" onClick={signInWithGoogle}>Sign in with Google</button>
         </div>
     )

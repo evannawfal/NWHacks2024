@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { signOut } from "firebase/auth";
-import { auth } from "./firebase.js";
+import { auth } from "../firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-import "./styles.css"
-import { emailAddress, profilePicture } from "./firebase.js";
+import "../styles/styles.css"
+import { emailAddress, profilePicture } from "../firebase.js";
 
 export function Navbar() {
 
@@ -25,7 +25,7 @@ export function Navbar() {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
-                navigate("/login");
+                navigate("/");
                 console.log("Signed out successfully");
             })
             .catch((error) => {
@@ -36,14 +36,13 @@ export function Navbar() {
 
     return (
         <div className="Navbar">
-            <img id="smalllogo" src={require('./Group_21.jpg')} />
+            <img id="smalllogo" src={require('../images/logoblue.jpg')} />
             <h1 className="header" id="title">MeerKat</h1>
             {isUserLoggedIn && (
                 <div>
                     <img className="personal" id="profilepic" src={profilePicture} />
                     <p className="personal" id="email" >{emailAddress}</p>
                     <button id="signout" onClick={handleLogout}>Sign Out</button>
-
                 </div>
             )}
         </div>
