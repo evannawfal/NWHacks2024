@@ -22,7 +22,7 @@ button, select {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 
 .event-card {

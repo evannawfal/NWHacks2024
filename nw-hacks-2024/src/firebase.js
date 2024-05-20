@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC82G0eW8Sphq2Q6TuK0__uXvkJToXJ0OY",
-  authDomain: "nwhacks2024-affe8.firebaseapp.com",
-  projectId: "nwhacks2024-affe8",
-  storageBucket: "nwhacks2024-affe8.appspot.com",
-  messagingSenderId: "732641950384",
-  appId: "1:732641950384:web:90161413440142633a9975",
-  measurementId: "G-5TC78VY487"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -28,7 +28,7 @@ const signInWithGoogle = async () => {
     profilePicture = user.photoURL;
 
     // Assuming user.uid is the unique identifier for the user
-    set(ref(db, 'users/' + user.uid), {
+    await set(ref(db, 'users/' + user.uid), {
       email: user.email,
       profilePic: user.photoURL
     });
